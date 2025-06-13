@@ -1,0 +1,27 @@
+<div class="card">
+    <div class="cad-body"> 
+        <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">Bem-vindo ao Blog, Sr. Adm. {{nome}}</h1>
+            <p class="col-md-8 fs-4">Esta é a página inicial do seu Blog. Você é que manda, pode criar e remover categorias e postagens.</p>
+        </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+<h2>Postagens recentes:</h2>
+{{#each posts}}
+<div class="card mt-4">
+    <div class="card-body">
+        <h3>{{title}} <span style="float: right;">De: {{titular}}</span></h3>
+        <small>Descrição: {{description}}</small><br>
+        <a href="/post/{{slug}}"><button class="btn btn-primary mt-4">Leia mais</button></a>
+        <hr>
+        <small>Categoria: {{category.nome}}</small><br>
+        <small>Data de publicação: {{date}}</small>
+    </div>
+</div>
+{{else}}
+    <h5>Nenhuma postagem ainda</h5>
+{{/each}}

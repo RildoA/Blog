@@ -1,0 +1,36 @@
+<style>
+  #codSlug{
+    float: right;
+  }
+</style>
+<div class="p-5 mb-4 bg-light rounded-3">
+  <div class="container-fluid py-5">
+    <h1 class="display-5 fw-bold">Bem-vindo ao Blog</h1>
+    <p class="col-md-8 fs-4">Esta é a página inicial do seu Blog. Aqui você pode navegar para várias postagens, visualizar informações e muito mais.</p>
+    {{#if user}}
+     <a class="btn btn-primary btn-lg" href="/user/posts/add" role="button">Criar postagem</a>
+    {{else}}
+    <a class="btn btn-primary btn-lg" href="/user/register" role="button">Registar-se</a>
+    
+    <a class="btn btn-info btn-lg" href="/user/login" role="button">Iniciar Sessão</a>
+    {{/if}}
+  </div>
+</div>
+<hr>
+<h2>Postagens recentes:</h2>
+{{#each posts}}
+<div class="card mt-4">
+    <div class="card-body">
+        <h3>{{title}} <span style="float: right;">De: {{titular}}</span></h3>
+        <small>Descrição: {{description}}</small><br>
+        <a href="/post/{{slug}}"><button class="btn btn-primary mt-4">Leia mais</button></a>
+        <span id="codSlug">slug: {{slug}}</span>
+        <hr>
+        <small>Categoria: {{category.nome}}</small><br>
+        <small>Data de publicação: {{date}}</small>
+    </div>
+</div>
+{{else}}
+    <h5>Nenhuma postagem ainda</h5>
+{{/each}}
+<footer style="text-align: center; opacity:60%" class="mt-4">&reg;Rildo Francisco Todos direitos reservados</footer>

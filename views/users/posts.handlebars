@@ -1,0 +1,37 @@
+<h2>De: {{titular}} </h2>
+<h3>Lista de Postagens: </h3>
+<hr>
+<a href="/user/posts/add"><button class="btn btn-success">Nova Postagem</button></a>
+{{#each posts}}
+    <div class="card mt-4">
+        <div class="card-body ">
+            <h4>{{title}} </h4>
+            <p>Descrição: {{description}}</p>
+            <small>Data: {{date}}</small><br>
+            <small>Categoria: {{category.nome}}</small><br>
+            <div id="content" class="mt-4" hidden>Conteúdo: <br>{{content}}</div><br>
+            <a href="/user/posts/edit/{{_id}}"><button class="btn btn-success mt-4" >Editar postagem</button></a>
+            <a href="/user/posts/delete/{{_id}}"><button class="btn btn-danger mt-4" >Apagar postagem</button></a>
+            <button class="btn btn-primary mt-4" id="showContent">Ver conteúdo</button>
+            
+        </div>
+    </div>
+{{else}}
+<p>Nenhuma postagem criada</p>
+{{/each}}
+<script>
+    const button = document.getElementById("showContent");
+    const textarea = document.getElementById("content");
+    button.addEventListener('click',()=>{
+        if(textarea.hidden){
+            textarea.hidden= false;
+            button.innerText="Esconder conteúdo";
+        }
+        else{
+            textarea.hidden= true;
+            button.innerText="Ver conteúdo";
+        }
+        
+        
+    })
+</script>
