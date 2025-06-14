@@ -51,8 +51,12 @@
         express.use(bodyParser.urlencoded({extended:true}))
         express.use(bodyParser.json());
     //Handlebars
-        express.engine('handlebars',engine({defaultLayout: 'main'}))
+        express.engine('handlebars',engine({
+            defaultLayout: 'main',
+            layoutsDir: path.join(__dirname, 'views', 'layouts')
+        }))
         express.set('view engine', 'handlebars');
+        express.set('views', path.join(__dirname, 'views'));
     //Mongoose
         mongoose.Promise = global.Promise;
         mongoose.connect(db.mongoURI).then(()=>{
