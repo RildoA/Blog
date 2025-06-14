@@ -10,7 +10,7 @@
     const user = require('./routes/user.js')
     const path = require('path');
     const session = require('express-session');
-    const flash = require('connect-flash');//flash tipo de sessão que só aparece uma vez. Biblioteca utiliza métodos obsuletos
+    //const flash = require('connect-flash');//flash tipo de sessão que só aparece uma vez. Biblioteca utiliza métodos obsuletos
     const { default: mongoose } = require('mongoose'); //const mongoose = require('mongoose')
     require('./models/Post.js');
     const Post = mongoose.model("postagens");
